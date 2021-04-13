@@ -1,11 +1,13 @@
-import React from 'react';
-import '../STYLES/app.scss'
+import React from 'react'
+import '../STYLES/app.scss';
 
-export default function App() {
+function App() {
+  return (
 
-    return (
-        <div className="app">
-            <h1>Welcome in react app to to to {new Date().toString()}</h1>
-        </div>
-    )
+  <div className="app">
+    <h1>Hello worldik </h1>
+  </div>
+
+  )
 }
+export default App;
