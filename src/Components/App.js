@@ -1,13 +1,14 @@
 import React from 'react'
-import '../STYLES/app.scss';
+import WeatherApp from './WeatherApp.js'
+import './Styles.scss';
 
 function App() {
   return (
-
-  <div className="app">
-    <h1>Hello worldik </h1>
-  </div>
-
-  )
+    <div className="App">
+      <h1>Hello</h1>
+      <WeatherApp/>
+    </div>
+  );
 }
+
 export default App;

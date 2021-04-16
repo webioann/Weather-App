@@ -1,0 +1,181 @@
+// @import './TotalStyles.scss';
+
+.app .warm{
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ccc;
+  
+    background-image: url('../assets/red.jpg');
+}
+ 
+.weather-app {
+    width: 100%;
+    max-width: 500px;
+    padding: 1rem;
+    height: 56rem;
+    margin: 0 auto;
+    font-family: 'Montseratt',sans-serif;
+    border-radius: 1rem;
+    transition: 0.4s ease;
+    background-color: rgba(0,0,0,0.5);
+        .sourch-wraper{
+            width: 100%;
+            margin: 0 0 2rem;
+            .sourch-bar{
+                display: block;
+                width: 100%;
+                padding: 1rem;
+                border-radius: 0.5rem;
+                appearance: none;
+                border: none;
+                background: none;
+                outline: none;
+                background-color: rgba(255,255,255,0.7);
+                box-shadow: 0 5px rgba(0,0,0,0.2);
+                color: #313131;
+                font-size: 1.2rem;
+                transition: 0.4s ease;
+                &:focus{
+                    background-color: rgba(255,255,255,0.8);
+                }
+            }
+        }
+        .location-wraper .location{
+            font-size: 2rem;
+            color: #fff;
+            font-weight: 500;
+            text-align: center;
+            text-shadow: 0 3px rgba(50,50,70,0.5);
+            margin-bottom: 0.7rem;
+        }
+        .location-wraper .date{
+            font-size: 1rem;
+            color: #fff;
+            font-weight: 300;
+            text-align: center;
+            text-shadow: 0 2px rgba(50,50,70,0.5);
+            font-style: italic;
+        }
+        .weather-wraper{
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+            padding: 2rem 0 15rem 0;
+        
+            .temper{
+                padding: 1rem 2rem;
+                background-color: rgba(255,255,255,0.7);
+                border-radius: 1rem;
+                color: #313131;
+                font-size: 6rem;
+                font-weight: 900;
+                .weather{
+                    margin-top: 1rem;
+                    color: #313131;
+                    font-size: 2.5rem;
+                    font-weight: 500;
+                    display: flex;
+                    justify-content: center;
+                    text-align: left;
+                    span{
+                        padding-bottom: 0.7rem;
+                        text-align: center;
+                        font-style: italic;
+                    }
+                    img{
+                        max-width: 50px;
+                        align-self: center;
+                    }
+                }  
+            }
+            .details{
+                position: relative;
+                display: inline-block;
+                padding: 0.7rem;
+                margin-top: 0.7rem;
+                background-color: rgba(255,255,255,0.6);
+                border-radius: 0.7rem;
+                color: #313131;
+                font-size: 1rem;
+                font-weight: 900;
+                // text-shadow: 0 3px rgba(50,50,70,0.5);
+                box-shadow: 0 6px  rgba(0,0,0,0.1);
+                p{
+                    text-align: left;
+                    margin-top: 10px;
+                }
+            }
+
+        }
+        
+}    
+
+
+//=============DESKTOP===========================//
+
+@media  (max-width: 1199px) {
+    html,body {
+        font-size: 16px;
+      }
+    .container{ 
+        max-width: 1140px;
+        // background-color: red;
+    }
+    .weather-wraper{
+        width: 80%;
+    }
+
+}
+
+//====================LEPTOP========================//
+
+@media  (max-width: 991px) {
+    html,body {
+        font-size: 15px;
+      }
+    .container{ 
+        max-width: 960px;
+    }
+    .weather-wraper{
+        width: 85%;
+    }
+
+}
+
+//=============== I-PAD planshets =======================//	
+
+@media   (max-width: 768px) {
+    html,body {
+        font-size: 14px;
+      }
+    .container{
+        max-width: 720px;
+    }
+    .weather-wraper{
+        width: 90%;
+    }
+}
+
+//=============== MOBILE ========================//
+
+@media  screen and (max-width: 575px) { 
+    html,body {
+        font-size: 14px;
+    }
+    .container{
+        max-width: 100%;
+        position: relative;
+    }
+    .weather-wraper{
+        width: 100%;
+    }
+}
+
+
+
+
+

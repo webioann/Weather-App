@@ -1,13 +1,14 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+// const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
     mode: "development",
     entry: './src/index.js',
     output: {
         filename: '[name].[hash].js', 
-        path: path.resolve(__dirname,'dist')
+        path: path.join(__dirname,'/dist')
     },
     devServer: {
         historyApiFallback: true,
@@ -21,9 +22,10 @@ module.exports = {
     ,
     plugins: [
         new HTMLWebpackPlugin({
-            template: './index.html'
+            template: './src/index.html'
         }),
         new CleanWebpackPlugin(),
+        // new ESLintPlugin(),
     ],
     module: {
         rules: [
@@ -38,7 +40,7 @@ module.exports = {
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
-                use: {loader: "babel-loader"},
+                use: ["babel-loader"]
             },    
             {
                 test: /\.(svg|png|jpg|gif|jpeg|ico)$/,
@@ -52,3 +54,4 @@ module.exports = {
     }
 
 };
+
