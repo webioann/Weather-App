@@ -13,21 +13,20 @@ function WeatherApp() {
   const[city,setCity] = useState('paris');
   const[active,setActive] = useState(false);
   const[message,setMessage] = useState('Message');
+  const[lang,setLang] = useState("ua")
 
   // =================== FETCH =======================//
   function getWeatherData () {
     const api = {
       key: "59f5158226fe5c049d50f354a9fa3f30",
       urlBase: "http://api.openweathermap.org/data/2.5/", 
-      lang: "ua",
     };
   
-    fetch(`${api.urlBase}weather?q=${city}&lang=${api.lang}&units=metric&appid=${api.key}`)
+    fetch(`${api.urlBase}weather?q=${city}&lang=${lang}&units=metric&appid=${api.key}`)
     .then(res => res.json())
     .then(data => {
       if(data.cod == "200") {
         setWeather(data);
-        
         localStorage.setItem("city",JSON.stringify(city));
         localStorage.setItem("defaultData",JSON.stringify(data));
         console.log(data);
@@ -54,6 +53,24 @@ function WeatherApp() {
         // localStorage.setItem("city",JSON.stringify(city));
       }
   }
+  // function chooseUkr () {
+  //   setLang("ua");
+  //   console.log("ua");
+  // }
+  // function chooseEng () {
+  //   setLang("eng");
+  //   console.log("eng");
+  // }
+  function chooseLang (e) {
+    if(e.target.id == 'eng') {
+      setLang("eng");
+      console.log("eng");
+    }else{
+      setLang("ua");
+      console.log("ua");
+    }
+  }
+
   useEffect(() => {
     let raw = localStorage.getItem("city");
       setCity(JSON.parse(raw));
@@ -79,17 +96,20 @@ function WeatherApp() {
               onChange={inputValues}
               onKeyPress={saveValues } />
               <Modal message={message} active={active}/>
+              <div className='lang-btn'>
+                <span onClick={chooseLang} id='eng'>ENG</span>
+                <span onClick={chooseLang} id='ua'>UKR</span>
+              </div>
           </div>
             <div className="location">{data.name}  , {data.sys.country}</div>
             <DateBuilder/>
             <div className='col weather' >
               <div className='temp-sky'>
                 <div className="temp">{Math.round(data.main.temp)}&deg;C</div>
-                <img src={`https://openweathermap.org/img/wn/${ data.weather[0].icon}@2x.png` } alt=''/>
-                <span> {data.weather[0].description} </span>
-                {/* <div className="sky">
-                  
-                </div> */}
+                <div className="sky">
+                  <span> {data.weather[0].description} </span>
+                  <img src={`https://openweathermap.org/img/wn/${ data.weather[0].icon}@2x.png` } alt=''/>
+                </div> 
               </div>
               <Details data={data}/>
             </div>
