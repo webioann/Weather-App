@@ -1,5 +1,5 @@
 import React from 'react'
-import './Styles.scss';
+import '../STYLES/Styles.scss';
 
 function Details(props) {
     const data = props.data;
@@ -76,7 +76,7 @@ function Details(props) {
    windDirect();
 
     return (
-        <div className='details'>
+        <div className='col details'>
             <p>Wind : {direction}  {Math.round(data.wind.speed)} m/s</p>
             <p>Sunrise : {sunRise}</p>
             <p>Sunset : {sunSet}</p>

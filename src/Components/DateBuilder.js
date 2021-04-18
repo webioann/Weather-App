@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import './Styles.scss'
+import '../STYLES/Styles.scss'
 
 export default function DateBuilder() {
 
@@ -17,7 +17,6 @@ export default function DateBuilder() {
             let year = dat.getFullYear();
             let a = `${day} ${dateNow} ${mounth} ${year}`;
             setDate(a);
-            console.log(a);
         };
         getDate();
     },[])

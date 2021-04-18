@@ -1,11 +1,10 @@
 import React from 'react'
 import WeatherApp from './WeatherApp.js'
-import './Styles.scss';
+import '../STYLES/Styles.scss';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello</h1>
+    <div className='app'>
       <WeatherApp/>
     </div>
   );
