@@ -13,7 +13,9 @@ function WeatherApp() {
   const[city,setCity] = useState('paris');
   const[active,setActive] = useState(false);
   const[message,setMessage] = useState('Message');
-  const[lang,setLang] = useState("ua")
+  const[lang,setLang] = useState("ua");
+  const[langEngColor,setLangEngColor] = useState("lang-btn not-active");
+  const[langUkrColor,setLangUkrColor] = useState("lang-btn not-active");
 
   // =================== FETCH =======================//
   function getWeatherData () {
@@ -64,10 +66,12 @@ function WeatherApp() {
   function chooseLang (e) {
     if(e.target.id == 'eng') {
       setLang("eng");
-      console.log("eng");
-    }else{
+      setLangEngColor("lang-btn active");
+      setLangUkrColor("lang-btn not-active");
+    }else if(e.target.id == 'ua') {
       setLang("ua");
-      console.log("ua");
+      setLangUkrColor("lang-btn active");
+      setLangEngColor("lang-btn not-active");
     }
   }
 
@@ -84,7 +88,7 @@ function WeatherApp() {
     console.log(`city => ${city }`);
     getWeatherData();
     console.log("UPDATA");
-  },[city]);
+  },[city,langEngColor]);
 
     return (
       (data.cod == "200") ? (
@@ -97,8 +101,8 @@ function WeatherApp() {
               onKeyPress={saveValues } />
               <Modal message={message} active={active}/>
               <div className='lang-btn'>
-                <span onClick={chooseLang} id='eng'>ENG</span>
-                <span onClick={chooseLang} id='ua'>UKR</span>
+                <div onClick={chooseLang} id='eng' className={langEngColor}>ENG</div>
+                <div onClick={chooseLang} id='ua' className={langUkrColor}>UKR</div>
               </div>
           </div>
             <div className="location">{data.name}  , {data.sys.country}</div>

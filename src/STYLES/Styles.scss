@@ -23,9 +23,9 @@ body{
         width: 100%;
         border-radius: 0.5rem;
         overflow: hidden;
+        background-color: #fff;
         input{
             width: 100%;
-            background-color: #fff;
             // background: linear-gradient(80deg, #cccccc, #F7F7F7);
             padding: 0.3rem 1rem;
             color: $dark-grey;
@@ -38,18 +38,27 @@ body{
         .lang-btn{
             max-height: 100%;
             width: 20%;
-            background-color: red;
             display: flex;
             flex-direction: column;
-            span{
+            div{
+                width: 100%;
+                height: 50%;
                 cursor: pointer;
                 font-size: 14px;
             }
-            span:last-child{
-                background-color: $text-col1;
+            div:last-child{
                 margin-top: auto;
             }
         }
+        .lang-btn .active{
+            background-color: #ccc;
+            color: red;
+        }
+        .lang-btn .not-active{
+            background-color: #fff;
+            color: black;
+        }
+
     }
     .location{
         margin: 0 auto;
